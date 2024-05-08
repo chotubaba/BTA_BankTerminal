@@ -28,7 +28,7 @@ def main():
             print(f"Select a currency from the available currencies: {available_currency}")
             source_currency = input("Enter source currency: ")
             target_currency = input("Enter target currency: ")
-            exchange_amount = input("Enter target currency: ")
+            exchange_amount = input("Enter exchange amount: ")
 
             result = exchange.exchange_currency(source_currency, target_currency, exchange_amount)
             if result is not None:

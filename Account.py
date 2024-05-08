@@ -66,4 +66,10 @@ class Account:
 
     def get_history(self):
         history = self.file_manager.read_json(self.hist_file_path)
-        return history
+        if history is not None: # Check if history is not None (file exists and data is read successfully)
+            history_string = "" # Initialize an empty string to store the history as a string
+
+            for entry in history:
+                entry_string = self.dict_to_string(entry)
+                history_string += entry_string + "\n" # append to 
+            return history_string
