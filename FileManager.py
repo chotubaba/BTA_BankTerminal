@@ -14,9 +14,8 @@ class FileManager:
             return json.load(f) # returns existing list of dictionaries as python object
         
     def write_json(self, list_of_dicts, json_file_path):
-        pass
-        # with open(json_file_path, "w") as f:
-        #     json.dump(list_of_dicts, f)
+        with open(json_file_path, "w") as f:
+            json.dump(list_of_dicts, f)
             
         # TODO:
         # Implement a process that writes a list of dictionaries from list_of_dicts to the `json_file_path` file
