@@ -22,7 +22,7 @@ class Account:
             else:
                 self.balance += amount
                 status = "success"
-                
+
         except ValueError:
             print("Invalid input for deposit!")
             status = "failure"
@@ -46,7 +46,7 @@ class Account:
             print("Invalid input for debit!")
             status = "failure"
 
-        history_message = HistoryMessages.deposit(status, amount, self.balance)
+        history_message = HistoryMessages.debit(status, amount, self.balance)
         self.write_to_history(history_message)
 
         # TODO:
