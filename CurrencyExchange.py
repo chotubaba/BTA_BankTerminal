@@ -3,7 +3,7 @@ from HistoryMessages import HistoryMessages
 import requests
 
 class CurrencyExchange:
-    def __init__(self, balance = 0):
+    def __init__(self):
         self.file_manager = FileManager()
         self.hist_file_path = "hist.json"
         self.url = "https://fake-api.apps.berlintech.ai/api/currency_exchange"
