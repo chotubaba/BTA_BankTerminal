@@ -10,13 +10,14 @@ class FileManager:
             f.write(data)
 
     def read_json(self, json_file_path):
-        pass
-        # TODO:
-        # Implement a process that reads the contents of a file whose path is stored in the `json_file_path` variable 
-        # and returns a list of dictionaries
+        with open(json_file_path, "r") as f:
+            return json.load(f) # returns existing list of dictionaries as python object
         
     def write_json(self, list_of_dicts, json_file_path):
         pass
+        # with open(json_file_path, "w") as f:
+        #     json.dump(list_of_dicts, f)
+            
         # TODO:
         # Implement a process that writes a list of dictionaries from list_of_dicts to the `json_file_path` file
 
