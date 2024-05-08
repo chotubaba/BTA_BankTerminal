@@ -9,12 +9,8 @@ class Account:
         
 
     def write_to_history(self, hist_dict):
-        pass 
-        # TODO:
-        # Comment and refine the code below so that the dictionary 
-        # from hist_dict is added to hist.json
-    
-        # self.file_manager 
+        self.file_manager.add_to_json(hist_dict,self.hist_file_path)
+
 
     def deposit(self, amount):
         pass
