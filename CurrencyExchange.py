@@ -15,11 +15,31 @@ class CurrencyExchange:
 
     def get_exchange_rates(self):
         response =  requests.get(self.url)
-        exchange_rates = response.json() # Parse response json data to return list of dictionaries
+        exchange_rates = response.json()
         return exchange_rates
     
+
     def exchange_currency(self, currency_from, currency_to, amount):
-        
+        exchange_rates = self.get_exchange_rates()
+        exchange_amount = None
+        status = "failure"  
+        try:
+            amount = float(amount)  # Convert amount to float
+            if exchange_rates:  # Check if exchange rates have been retrieved
+                if currency_from not in exchange_rates or currency_to not in exchange_rates:
+                    print("Currency exchange failed!")
+                else:
+                    rate_from = exchange_rates[currency_from]
+                    rate_to = exchange_rates[currency_to]
+                    exchange_amount = (amount / rate_from) * rate_to
+                    status = "success" 
+            else:
+                print("Currency exchange failed!")
+        except ValueError:
+            print("Currency exchange failed!")
+
+        history_message = HistoryMessages.exchange(status, amount, exchange_amount, currency_from, currency_to)
+        self.write_to_history(history_message)
 
         # implement a process that transfers the specified amount from currency `currency_from` 
         # to currency `currency_to` and, if positive, returns the amount in the new currency
