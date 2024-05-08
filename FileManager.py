@@ -8,8 +8,6 @@ class FileManager:
     def save_data(self, filename, data):
         with open(filename, "w") as f:
             f.write(data)
-        # TODO:
-        # Implement a process that writes the contents of `data` to the file `filename`
 
     def read_json(self, json_file_path):
         pass
