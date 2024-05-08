@@ -2,13 +2,12 @@ import json
 
 class FileManager:
     def load_data(self, filename):
-        pass
-        # TODO:
-        # Implement a process that reads the contents of the `filename` file 
-        # and returns the text.
+        with open(filename, "r")  as f:
+            return f.read()
 
     def save_data(self, filename, data):
-        pass
+        with open(filename, "w") as f:
+            f.write(data)
         # TODO:
         # Implement a process that writes the contents of `data` to the file `filename`
 
