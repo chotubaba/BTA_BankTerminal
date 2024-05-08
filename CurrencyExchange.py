@@ -40,16 +40,4 @@ class CurrencyExchange:
 
         history_message = HistoryMessages.exchange(status, amount, exchange_amount, currency_from, currency_to)
         self.write_to_history(history_message)
-
-        # implement a process that transfers the specified amount from currency `currency_from` 
-        # to currency `currency_to` and, if positive, returns the amount in the new currency
-
-        # with a positive outcome, the record of history looks like this 
-        # history_message = HistoryMessages.exchange("success", amount, converted_amount, currency_from, currency_to)
-        # self.write_to_history(history_message)
-        
-        # in case of a negative outcome, the history entry looks like this
-        # - if currency_from or currency_to is specified incorrectly
-        # - if amount is not a number
-        # history_message = HistoryMessages.exchange("failure", amount, None, currency_from, currency_to)
-        # self.write_to_history(history_message)
+        return exchange_amount
