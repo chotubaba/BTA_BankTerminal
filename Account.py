@@ -22,6 +22,7 @@ class Account:
             else:
                 self.balance += amount
                 status = "success"
+                
         except ValueError:
             print("Invalid input for deposit!")
             status = "failure"
@@ -31,7 +32,23 @@ class Account:
 
 
     def debit(self, amount):
-        pass
+        try:
+            amount = int(amount)
+
+            if self.balance < amount:
+                status = "failure"
+                print("Invalid amount for debit!")
+            else:
+                self.balance -= amount
+                status = "success"
+
+        except ValueError:
+            print("Invalid input for debit!")
+            status = "failure"
+
+        history_message = HistoryMessages.deposit(status, amount, self.balance)
+        self.write_to_history(history_message)
+
         # TODO:
         # implement account debits with all necessary checks
         # amount must be a integer greater than 0

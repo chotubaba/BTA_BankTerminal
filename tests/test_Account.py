@@ -47,7 +47,7 @@ class TestAccount(unittest.TestCase):
     def test_debit_invalid_input(self, mock_print):
         self.account.debit("invalid")
         self.assertEqual(self.account.get_balance(), 0)
-        mock_print.assert_called_with("Invalid amount for debit!")
+        mock_print.assert_called_with("Invalid input for debit!")
 
     def test_get_balance(self):
         self.assertEqual(self.account.get_balance(), 0)
