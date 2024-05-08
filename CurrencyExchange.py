@@ -1,10 +1,12 @@
 from FileManager import FileManager
 from HistoryMessages import HistoryMessages
+import requests
 
 class CurrencyExchange:
     def __init__(self, balance = 0):
         self.file_manager = FileManager()
         self.hist_file_path = "hist.json"
+        self.url = "https://fake-api.apps.berlintech.ai/api/currency_exchange"
         
 
     def write_to_history(self, hist_dict):
@@ -12,12 +14,12 @@ class CurrencyExchange:
 
 
     def get_exchange_rates(self):
-        pass
-        # Implement a process that sends a get request to the link 
-        # and returns the resulting dictionary.
+        response =  requests.get(self.url)
+        exchange_rates = response.json() # Parse response json data to return list of dictionaries
+        return exchange_rates
     
     def exchange_currency(self, currency_from, currency_to, amount):
-        pass
+        
 
         # implement a process that transfers the specified amount from currency `currency_from` 
         # to currency `currency_to` and, if positive, returns the amount in the new currency
