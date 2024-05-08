@@ -28,7 +28,7 @@ class TestAccount(unittest.TestCase):
     def test_deposit_invalid_input(self, mock_print):
         self.account.deposit("invalid")
         self.assertEqual(self.account.get_balance(), 0)
-        mock_print.assert_called_with("Invalid amount for deposit!")
+        mock_print.assert_called_with("Invalid input for deposit!")
 
     @patch('builtins.print')
     def test_debit_success(self, mock_print):
