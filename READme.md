@@ -12,7 +12,7 @@ Clone the repository: git clone https://github.com/yourusername/bank-terminal-ap
 Navigate to the project directory: cd bank-terminal-app
 Install dependencies: pip install -r requirements.txt
 Usage
----(Run the application: python main.py)
+---(Run the application: python app.py)
 Follow the on-screen prompts to perform various banking operations.
 
 ## Terminal Interface
